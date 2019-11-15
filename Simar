@@ -1,0 +1,14 @@
+CREATE TABLE bicycle_data
+AS( select
+ customers.cellphone as customer_id, customers.name as customer_name, customers.city as customer_city, customers.occupation as job,
+ purchase.BIKE_ID as purchase_bike, repair.date_in as repair_date_in,
+repair.charge as repair_charge
+
+from customers
+
+left join purchase
+on customers.cellphone = purchase.cellphone
+
+left join repair
+on customers.cellphone = repair.cellphone)
+;
